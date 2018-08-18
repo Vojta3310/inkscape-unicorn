@@ -115,7 +115,7 @@ class SvgRect(SvgPath):
 
 class SvgLine(SvgPath):
   def load(self, node, mat):
-    newpath = self.new_path_from_node(node)
+    newpath = new_path_from_node(node)
     x1 = float(node.get('x1'))
     y1 = float(node.get('y1'))
     x2 = float(node.get('x2'))
@@ -128,7 +128,7 @@ class SvgLine(SvgPath):
 
 class SvgPolyLine(SvgPath):
   def load(self, node, mat):
-    newpath = self.new_path_from_node(node)
+    newpath = new_path_from_node(node)
     pl = node.get('points','').strip()
     if pl == '':
       return
@@ -147,7 +147,7 @@ class SvgEllipse(SvgPath):
     rx = float(node.get('rx','0'))
     ry = float(node.get('ry','0'))
     SvgPath.load(self,self.make_ellipse_path(rx,ry,node), mat)
-  def make_ellipse_path(self, rx, ry, node):
+  def make_ellipse_path(rx, ry, node):
     if rx == 0 or ry == 0:
       return None
     cx = float(node.get('cx','0'))
@@ -159,7 +159,7 @@ class SvgEllipse(SvgPath):
       '0 1 0 %f, %f ' % (x2,cy) + \
       'A %f,%f ' % (rx,ry) + \
       '0 1 0 %f,%f' % (x1,cy)
-    newpath = self.new_path_from_node(node)
+    newpath = new_path_from_node(node)
     newpath.set('d',d)
     return newpath
   
