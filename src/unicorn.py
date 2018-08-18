@@ -29,11 +29,11 @@ class MyEffect(inkex.Effect):
     self.OptionParser.add_option("--pen-up-angle",
                       action="store", type="float",
                       dest="pen_up_angle", default="50.0",
-                      help="Pen Up Angle")
+                      help="Pen Up Z value")
     self.OptionParser.add_option("--pen-down-angle",
                       action="store", type="float",
                       dest="pen_down_angle", default="30.0",
-                      help="Pen Down Angle")
+                      help="Pen Down Z value")
     self.OptionParser.add_option("--start-delay",
                       action="store", type="float",
                       dest="start_delay", default="150.0",
